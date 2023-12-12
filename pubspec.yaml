@@ -1,7 +1,7 @@
 name: magic_canvas
 description: A new Flutter project.
 version: 0.0.1
-homepage:
+homepage: https://github.com/mag1c-dev/magic_canvas
 
 environment:
   sdk: '>=2.19.3 <3.0.0'
