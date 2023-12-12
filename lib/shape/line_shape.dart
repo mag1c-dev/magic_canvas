@@ -1,7 +1,13 @@
+/// This is a Dart file named line_shape.dart.
+/// It contains the implementation of the LineShape class, which is a subclass of AbstractShape.
+/// The LineShape represents a line on a canvas with specified length, width, location, color, and style.
+/// It can be drawn on a canvas and has functionality for resizing, removing, and translating.
+/// The LineShape also has methods for checking if a point is over the line and getting the start and end offsets.
+/// This code is written in the Dart programming language.
+
 import 'package:flutter/material.dart';
 import 'package:magic_canvas/utils/extension.dart';
 import 'package:magic_canvas/shape/shape.dart';
-
 
 class LineShape extends AbstractShape {
   LineShape({
@@ -22,6 +28,7 @@ class LineShape extends AbstractShape {
 
   @override
   void draw(Canvas canvas, Size boardSize) {
+    /// Draw the line shape on the canvas
     final Paint paint = Paint()
       ..color = color
       ..strokeWidth = size.height
@@ -32,12 +39,14 @@ class LineShape extends AbstractShape {
     path.lineTo(_endOffset.dx, _endOffset.dy);
     canvas.drawPath(path, paint);
 
+    /// Highlight or select the line shape if necessary
     if (isHighlight || isSelected) {
       paint.color = Colors.blue;
       paint.style = PaintingStyle.stroke;
       canvas.drawPath(path, paint);
     }
 
+    /// Draw resize points and remove points if the line shape is selected
     if (isSelected) {
       for (var resizePoint in resizePoints) {
         paint.color = Colors.blue;

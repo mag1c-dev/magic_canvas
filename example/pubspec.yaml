@@ -1,0 +1,15 @@
+name: magic_canvas_example
+description: Example for magic_canvas
+version: 1.0.0+1
+
+environment:
+  sdk: '>=2.17.0 <3.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  flutter_colorpicker: ^1.0.3
+  file_selector: ^1.0.1
+  image_downloader_web: ^1.0.2
+  magic_canvas:

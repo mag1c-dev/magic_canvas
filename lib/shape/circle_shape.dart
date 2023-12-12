@@ -1,3 +1,11 @@
+/// This is a Dart code file named circle_shape.dart.
+/// It contains the implementation of a CircleShape class which extends the TextBoxShape class.
+/// The CircleShape class represents a circular shape with customizable properties such as location, size, color, border, and text.
+/// It overrides the drawObject, drawDecorate, and isOverObject methods to provide specific functionality for drawing and interaction.
+/// The drawObject method draws the circle shape on the canvas using the provided paint object.
+/// The drawDecorate method is responsible for drawing the border of the circle shape if a border color is specified.
+/// The isOverObject method checks if a given offset is inside the circle shape.
+/// Overall, this code provides a way to create and manipulate circle shapes in a canvas.
 import 'dart:math';
 import 'dart:ui';
 import 'package:magic_canvas/shape/shape.dart';

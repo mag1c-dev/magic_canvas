@@ -24,7 +24,6 @@ extension ListUtil<E> on List<E> {
 }
 
 extension OffsetExt on Offset {
-
   double distanceTo(Offset offset) {
     return sqrt(pow((offset.dx - dx), 2) + pow((offset.dy - dy), 2));
   }
@@ -69,11 +68,15 @@ extension OffsetExt on Offset {
   }
 
   bool isPointInsideTriangle(Offset vertexA, Offset vertexB, Offset vertexC) {
-    double alpha = ((vertexB.dy - vertexC.dy)*(dx - vertexC.dx) + (vertexC.dx - vertexB.dx)*(dy - vertexC.dy)) /
-        ((vertexB.dy - vertexC.dy)*(vertexA.dx - vertexC.dx) + (vertexC.dx - vertexB.dx)*(vertexA.dy - vertexC.dy));
+    double alpha = ((vertexB.dy - vertexC.dy) * (dx - vertexC.dx) +
+            (vertexC.dx - vertexB.dx) * (dy - vertexC.dy)) /
+        ((vertexB.dy - vertexC.dy) * (vertexA.dx - vertexC.dx) +
+            (vertexC.dx - vertexB.dx) * (vertexA.dy - vertexC.dy));
 
-    double beta = ((vertexC.dy - vertexA.dy)*(dx - vertexC.dx) + (vertexA.dx - vertexC.dx)*(dy - vertexC.dy)) /
-        ((vertexB.dy - vertexC.dy)*(vertexA.dx - vertexC.dx) + (vertexC.dx - vertexB.dx)*(vertexA.dy - vertexC.dy));
+    double beta = ((vertexC.dy - vertexA.dy) * (dx - vertexC.dx) +
+            (vertexA.dx - vertexC.dx) * (dy - vertexC.dy)) /
+        ((vertexB.dy - vertexC.dy) * (vertexA.dx - vertexC.dx) +
+            (vertexC.dx - vertexB.dx) * (vertexA.dy - vertexC.dy));
 
     double gamma = 1.0 - alpha - beta;
 

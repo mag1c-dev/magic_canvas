@@ -1,3 +1,10 @@
+/// This is a Dart code from the file chat_bubble_shape.dart.
+/// It defines a class ChatBubbleShape that extends TextBoxShape.
+/// The ChatBubbleShape represents a chat bubble shape with an optional arrow pointing to a specific location.
+/// It provides methods to draw the chat bubble shape, draw the highlight when selected or highlighted, and draw the border decoration.
+/// The class also handles resizing and translation of the chat bubble shape.
+/// The programming language used is Dart.
+
 import 'package:flutter/material.dart';
 import 'package:magic_canvas/utils/extension.dart';
 import 'package:magic_canvas/shape/shape.dart';
@@ -84,30 +91,44 @@ class ChatBubbleShape extends TextBoxShape {
     } else {
       var path = Path();
       path.moveTo(location.dx + borderRadius.x, location.dy);
-      if (arrowFoot![0].distanceToLine(location, location.translate(size.width, 0)) < 5) {
-        _drawArrow(path);
-      }
-      path.lineTo(location.dx + size.width - borderRadius.x, location.dy);
-      path.arcToPoint(Offset(location.dx + size.width, location.dy + borderRadius.y), radius: borderRadius);
-      if (arrowFoot![0].distanceToLine(location.translate(size.width, 0), location.translate(size.width, size.height)) <
+      if (arrowFoot![0]
+              .distanceToLine(location, location.translate(size.width, 0)) <
           5) {
         _drawArrow(path);
       }
-      path.lineTo(location.dx + size.width, location.dy + size.height - borderRadius.y);
-      path.arcToPoint(Offset(location.dx + size.width - borderRadius.x, location.dy + size.height),
+      path.lineTo(location.dx + size.width - borderRadius.x, location.dy);
+      path.arcToPoint(
+          Offset(location.dx + size.width, location.dy + borderRadius.y),
           radius: borderRadius);
-      if (arrowFoot![0]
-              .distanceToLine(location.translate(size.width, size.height), location.translate(0, size.height)) <
+      if (arrowFoot![0].distanceToLine(location.translate(size.width, 0),
+              location.translate(size.width, size.height)) <
+          5) {
+        _drawArrow(path);
+      }
+      path.lineTo(
+          location.dx + size.width, location.dy + size.height - borderRadius.y);
+      path.arcToPoint(
+          Offset(location.dx + size.width - borderRadius.x,
+              location.dy + size.height),
+          radius: borderRadius);
+      if (arrowFoot![0].distanceToLine(
+              location.translate(size.width, size.height),
+              location.translate(0, size.height)) <
           5) {
         _drawArrow(path);
       }
       path.lineTo(location.dx + borderRadius.x, location.dy + size.height);
-      path.arcToPoint(Offset(location.dx, location.dy + size.height - borderRadius.y), radius: borderRadius);
-      if (arrowFoot![0].distanceToLine(location.translate(0, size.height), location) < 5) {
+      path.arcToPoint(
+          Offset(location.dx, location.dy + size.height - borderRadius.y),
+          radius: borderRadius);
+      if (arrowFoot![0]
+              .distanceToLine(location.translate(0, size.height), location) <
+          5) {
         _drawArrow(path);
       }
       path.lineTo(location.dx, location.dy + borderRadius.y);
-      path.arcToPoint(Offset(location.dx + borderRadius.x, location.dy), radius: borderRadius);
+      path.arcToPoint(Offset(location.dx + borderRadius.x, location.dy),
+          radius: borderRadius);
       canvas.drawPath(path, paint);
     }
   }
@@ -158,8 +179,8 @@ class ChatBubbleShape extends TextBoxShape {
   @override
   bool isOverObject(Offset offset) {
     return super.isOverObject(offset) ||
-        (arrowFoot != null && offset.isPointInsideTriangle(arrowFoot![0], arrowFoot![1], arrowPoint));
+        (arrowFoot != null &&
+            offset.isPointInsideTriangle(
+                arrowFoot![0], arrowFoot![1], arrowPoint));
   }
 }
-
-
