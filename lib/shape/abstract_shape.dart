@@ -1,5 +1,4 @@
 import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:magic_canvas/utils/extension.dart';
 
@@ -9,7 +8,7 @@ class RotatePoint {
   final Offset offset;
   final Offset anchorOffset;
 
-  const RotatePoint( {
+  const RotatePoint({
     this.offset = Offset.zero,
     this.anchorOffset = Offset.zero,
   });
@@ -24,7 +23,6 @@ class ResizePoint {
     this.onResize,
   });
 }
-
 
 abstract class AbstractShape {
   Offset location;
@@ -61,11 +59,13 @@ abstract class AbstractShape {
 
   void rotate(Offset oldOffset, Offset newOffset) {
     if (_activeRotatePoint != null) {
-      _angle += _calculateAngleBetweenLines(oldOffset, center, newOffset, center);
+      _angle +=
+          _calculateAngleBetweenLines(oldOffset, center, newOffset, center);
     }
   }
 
-  double _calculateAngleBetweenLines(Offset point1, Offset point2, Offset point3, Offset point4) {
+  double _calculateAngleBetweenLines(
+      Offset point1, Offset point2, Offset point3, Offset point4) {
     double vector1x = point2.dx - point1.dx;
     double vector1y = point2.dy - point1.dy;
     double vector2x = point4.dx - point3.dx;
@@ -168,11 +168,13 @@ abstract class AbstractShape {
   }
 
   RotatePoint? overRotatePoint(Offset mouseOffset) {
-    return rotatePoints.firstWhereNullable((RotatePoint element) => element.offset.distanceTo(mouseOffset) < reactSize);
+    return rotatePoints.firstWhereNullable((RotatePoint element) =>
+        element.offset.distanceTo(mouseOffset) < reactSize);
   }
 
   Offset? overRemovePoint(Offset mouseOffset) {
-    return removePoints.firstWhereNullable((Offset element) => element.distanceTo(mouseOffset) < reactSize);
+    return removePoints.firstWhereNullable(
+        (Offset element) => element.distanceTo(mouseOffset) < reactSize);
   }
 
   bool get isHighlight => _isHighlight;
@@ -199,5 +201,3 @@ abstract class AbstractShape {
 
   RotatePoint? get activeRotatePoint => _activeRotatePoint;
 }
-
-

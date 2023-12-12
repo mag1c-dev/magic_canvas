@@ -11,29 +11,46 @@ and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/developing-packages).
 -->
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+Flutter package support draw canvas shapes
 
-## Features
+[![pub package](https://img.shields.io/pub/v/magic_canvas.svg)](https://pub.dev/packages/magic_canvas)
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+## Support shapes
+
+1. Rectangle
+2. Circle
+3. Line
+4. Arrow
+5. Chat bubble
+6. Custom shape by extend AbstractShape
 
 ## Getting started
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+To use this plugin, add `magic_canvas` as a [dependency in your pubspec.yaml file](https://flutter.io/platform-plugins/).
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
+Here is a simple example, see more detail at `/example`
 
 ```dart
-const like = 'sample';
+Board(
+    children: [
+        RectangleShape(
+            borderColor: Colors.red,
+            location: const Offset(5, 5),
+            size: const Size(30, 50),
+            color: Colors.orange,
+        ),
+        CircleShape(
+            borderColor: Colors.red,
+            location: const Offset(50, 5),
+            size: const Size(30, 50),
+            color: Colors.orange,
+            text: 'Hello'
+        ),
+        color: Colors.grey,
+        size: const Size(1280, 720),
+    ],
+)
 ```
 
-## Additional information
-
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.

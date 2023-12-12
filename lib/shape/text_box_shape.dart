@@ -1,3 +1,7 @@
+/// A class representing a text box shape that extends the RectangleShape class.
+/// It contains properties such as text, textAlign, textStyle, _isEditing,
+/// and methods such as draw, startEdit, and endEdit.
+///
 import 'package:flutter/material.dart';
 import 'package:magic_canvas/shape/shape.dart';
 

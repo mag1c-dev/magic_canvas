@@ -192,10 +192,13 @@ class BoardState extends State<Board> {
   Future<ui.Image> get rendered {
     var pictureRecorder = ui.PictureRecorder();
     Canvas canvas = Canvas(pictureRecorder);
-    BoardPainter painter = BoardPainter(children: widget.children, background: widget.color);
+    BoardPainter painter =
+        BoardPainter(children: widget.children, background: widget.color);
     var size = context.size;
     painter.paint(canvas, size!);
-    return pictureRecorder.endRecording().toImage(size.width.floor(), size.height.floor());
+    return pictureRecorder
+        .endRecording()
+        .toImage(size.width.floor(), size.height.floor());
   }
 
   void handleMouseDown(Offset localPosition) {

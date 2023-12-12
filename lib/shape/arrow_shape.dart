@@ -1,3 +1,12 @@
+/// This is a Dart code file named "arrow_shape.dart".
+/// It contains the implementation of the ArrowShape class, which is a subclass of the LineShape class.
+/// The ArrowShape represents an arrow shape with a specified location, length, width, color, and style.
+/// It overrides the draw method to draw the arrow shape on a canvas using the provided parameters.
+/// The draw method calculates the arrowhead points based on the start and end offsets of the line,
+/// and then draws the arrowhead and the line using the calculated points.
+/// If the arrow shape is highlighted or selected, it applies a blue color to the shape.
+/// The ArrowShape class is part of the "magic_canvas" package.
+
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:magic_canvas/shape/shape.dart';

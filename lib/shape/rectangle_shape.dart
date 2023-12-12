@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 import 'package:magic_canvas/utils/extension.dart';
 import 'package:magic_canvas/shape/shape.dart';
 
-
 class RectangleShape extends AbstractShape {
   Color? borderColor;
   Radius borderRadius;
@@ -134,11 +133,16 @@ class RectangleShape extends AbstractShape {
         ResizePoint(
           offset: location.translate(0, size.height / 2),
           onResize: (oldMouse, newMouse) {
-            Offset rotatedTR = location.translate(size.width, 0).rotate(center: center, angle: angle);
-            Offset newMouseDeRotated = newMouse.rotate(center: center, angle: -angle);
+            Offset rotatedTR = location
+                .translate(size.width, 0)
+                .rotate(center: center, angle: angle);
+            Offset newMouseDeRotated =
+                newMouse.rotate(center: center, angle: -angle);
             Offset rotatedBL =
-                Offset(newMouseDeRotated.dx, location.dy + size.height).rotate(angle: angle, center: center);
-            Size newSize = Size(location.dx + size.width - newMouseDeRotated.dx, size.height);
+                Offset(newMouseDeRotated.dx, location.dy + size.height)
+                    .rotate(angle: angle, center: center);
+            Size newSize = Size(
+                location.dx + size.width - newMouseDeRotated.dx, size.height);
             Offset newCenter = Offset(
               (rotatedTR.dx + rotatedBL.dx) / 2,
               (rotatedTR.dy + rotatedBL.dy) / 2,
@@ -156,11 +160,16 @@ class RectangleShape extends AbstractShape {
         ResizePoint(
           offset: location.translate(size.width / 2, 0),
           onResize: (oldMouse, newMouse) {
-            Offset rotatedBL = location.translate(0, size.height).rotate(center: center, angle: angle);
-            Offset newMouseDeRotated = newMouse.rotate(center: center, angle: -angle);
+            Offset rotatedBL = location
+                .translate(0, size.height)
+                .rotate(center: center, angle: angle);
+            Offset newMouseDeRotated =
+                newMouse.rotate(center: center, angle: -angle);
             Offset rotatedTR =
-                Offset(location.dx + size.width, newMouseDeRotated.dy).rotate(angle: angle, center: center);
-            Size newSize = Size(size.width, location.dy + size.height - newMouseDeRotated.dy);
+                Offset(location.dx + size.width, newMouseDeRotated.dy)
+                    .rotate(angle: angle, center: center);
+            Size newSize = Size(
+                size.width, location.dy + size.height - newMouseDeRotated.dy);
             Offset newCenter = Offset(
               (rotatedBL.dx + rotatedTR.dx) / 2,
               (rotatedBL.dy + rotatedTR.dy) / 2,
@@ -179,10 +188,13 @@ class RectangleShape extends AbstractShape {
           offset: location.translate(size.width, size.height / 2),
           onResize: (oldMouse, newMouse) {
             Offset rotatedTL = location.rotate(center: center, angle: angle);
-            Offset newMouseDeRotated = newMouse.rotate(center: center, angle: -angle);
+            Offset newMouseDeRotated =
+                newMouse.rotate(center: center, angle: -angle);
             Offset rotatedBR =
-                Offset(newMouseDeRotated.dx, location.dy + size.height).rotate(angle: angle, center: center);
-            Size newSize = Size(newMouseDeRotated.dx - location.dx, size.height);
+                Offset(newMouseDeRotated.dx, location.dy + size.height)
+                    .rotate(angle: angle, center: center);
+            Size newSize =
+                Size(newMouseDeRotated.dx - location.dx, size.height);
             Offset newCenter = Offset(
               (rotatedTL.dx + rotatedBR.dx) / 2,
               (rotatedTL.dy + rotatedBR.dy) / 2,
@@ -200,9 +212,11 @@ class RectangleShape extends AbstractShape {
           offset: location.translate(size.width / 2, size.height),
           onResize: (oldMouse, newMouse) {
             Offset rotatedTL = location.rotate(center: center, angle: angle);
-            Offset newMouseDeRotated = newMouse.rotate(center: center, angle: -angle);
+            Offset newMouseDeRotated =
+                newMouse.rotate(center: center, angle: -angle);
             Offset rotatedBR =
-                Offset(location.dx + size.width, newMouseDeRotated.dy).rotate(angle: angle, center: center);
+                Offset(location.dx + size.width, newMouseDeRotated.dy)
+                    .rotate(angle: angle, center: center);
             Size newSize = Size(size.width, newMouseDeRotated.dy - location.dy);
             Offset newCenter = Offset(
               (rotatedTL.dx + rotatedBR.dx) / 2,
@@ -220,7 +234,9 @@ class RectangleShape extends AbstractShape {
         ResizePoint(
           offset: location,
           onResize: (oldMouse, newMouse) {
-            Offset rotatedBR = location.translate(size.width, size.height).rotate(center: center, angle: angle);
+            Offset rotatedBR = location
+                .translate(size.width, size.height)
+                .rotate(center: center, angle: angle);
 
             Offset newCenter = Offset(
               (rotatedBR.dx + newMouse.dx) / 2,
@@ -241,7 +257,9 @@ class RectangleShape extends AbstractShape {
         ResizePoint(
           offset: location.translate(size.width, 0),
           onResize: (oldMouse, newMouse) {
-            Offset rotatedBL = location.translate(0, size.height).rotate(center: center, angle: angle);
+            Offset rotatedBL = location
+                .translate(0, size.height)
+                .rotate(center: center, angle: angle);
 
             Offset newCenter = Offset(
               (rotatedBL.dx + newMouse.dx) / 2,
@@ -264,7 +282,9 @@ class RectangleShape extends AbstractShape {
         ResizePoint(
           offset: location.translate(0, size.height),
           onResize: (oldMouse, newMouse) {
-            Offset rotatedTR = location.translate(size.width, 0).rotate(center: center, angle: angle);
+            Offset rotatedTR = location
+                .translate(size.width, 0)
+                .rotate(center: center, angle: angle);
 
             Offset newCenter = Offset(
               (rotatedTR.dx + newMouse.dx) / 2,
